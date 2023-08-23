@@ -12,6 +12,7 @@ export const stationController = {
     const latestTempF = conversions.celsiusToFahrenheit(latestReading.temperature);
     const latestWindSpeedBft = conversions.windSpeedtoBeaufort(latestReading.windSpeed);
     const latestPressure = latestReading.pressure;
+    const latestCompassDirection = conversions.windDirectionToCompassDirection(latestReading.windDirection);
     const viewData = {
       title: "Station",
       station: station,
@@ -20,6 +21,7 @@ export const stationController = {
       latestTempF: latestTempF,
       latestWindSpeedBft: latestWindSpeedBft,
       latestPressure: latestPressure,
+      latestCompassDirection: latestCompassDirection,
     };
     response.render("station-view", viewData);
   },
