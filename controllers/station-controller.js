@@ -7,16 +7,19 @@ export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     const latestReading = await stationAnalytics.getLatestReading(station._id);
-    const code = latestReading.code;
-    const tempC = latestReading.temperature;
-    const tempF = conversions.celsiusToFahrenheit(latestReading.temperature);
+    const latestWeather = conversions.convertWeatherCode(latestReading.code);
+    const latestTempC = latestReading.temperature;
+    const latestTempF = conversions.celsiusToFahrenheit(latestReading.temperature);
+    const latestWindSpeedBft = conversions.windSpeedtoBeaufort(latestReading.windSpeed);
+    const latestPressure = latestReading.pressure;
     const viewData = {
       title: "Station",
       station: station,
-      latestCode: code,
-      latestTempC: tempC,
-      latestTempF: tempF,
-      
+      latestWeather: latestWeather,
+      latestTempC: latestTempC,
+      latestTempF: latestTempF,
+      latestWindSpeedBft: latestWindSpeedBft,
+      latestPressure: latestPressure,
     };
     response.render("station-view", viewData);
   },

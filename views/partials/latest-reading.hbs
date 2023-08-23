@@ -25,7 +25,7 @@
             </div>
             <div class="columns is-mobile">
                 <div class="column is-two-thirds">
-                    <p>{{latestCode}}</p>
+                    <p>{{latestWeather}}</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
@@ -103,7 +103,7 @@
             </div>
             <div class="columns is-mobile">
                 <div class="column is-two-thirds">
-                    <p>${reading.getBeaufort()} bft</p>
+                    <p>{{latestWindSpeedBft}} bft</p>
                     <p>${reading.getCompassDirection()}</p>
                     <p>Feels: ${reading.getWindChill()} C</p>
                     <p> Max: ${_station.maxWindSpeed}</p>
@@ -136,7 +136,7 @@
             </div>
             <div class="columns is-mobile">
                 <div class="column is-two-thirds">
-                    <p>${reading.pressure} hPa</p>
+                    <p>{{latestPressure}} hPa</p>
                     <p>Max: ${_station.maxPressure}</p>
                     <p>Min: ${_station.minPressure}</p>
                     <p class="is-invisible">U+0020</p>
