@@ -1,0 +1,52 @@
+<form action="/station/{{station._id}}/addreading" method="POST">
+    <div class="columns">
+        <div class="field column">
+            <label class="label">Code</label>
+            <div class="control">
+                <div class="select is-fullwidth">
+                    <select name="code">
+                        <option>Select Code</option>
+                        <option value="100" type="int">100</option>
+                        <option value="200" type="int">200</option>
+                        <option value="300" type="int">300</option>
+                        <option value="400" type="int">400</option>
+                        <option value="500" type="int">500</option>
+                        <option value="600" type="int">600</option>
+                        <option value="700" type="int">700</option>
+                        <option value="800" type="int">800</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field column">
+            <label class="label">Temperature</label>
+            <div class="control">
+                <input class="input" placeholder="5.5" type="float" name="temperature">
+            </div>
+        </div>
+        <div class="field column">
+            <label class="label">Wind Speed</label>
+            <div class="control">
+                <input class="input" placeholder="4" type="number" name="windSpeed">
+            </div>
+        </div>
+        <div class="field column">
+            <label class="label">Wind Direction</label>
+            <div class="control">
+                <input class="input" placeholder="200" type="number" name="windDirection">
+            </div>
+        </div>
+        <div class="field column">
+            <label class="label">Pressure</label>
+            <div class="control">
+                <input class="input" placeholder="1000" type="number" name="pressure">
+            </div>
+        </div>
+    </div>
+    <div class="field mt-4">
+        <div class="control">
+            <button class="button is-info">Add reading</button>
+        </div>
+    </div>
+</form>
+

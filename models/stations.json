@@ -1,0 +1,16 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "title": "test2",
+      "_id": "a1105eda-1fb3-4ea2-8aea-f27adfa3626e"
+    },
+    {
+      "title": "test123",
+      "latitude": "123",
+      "longitude": "123",
+      "userid": "e2148e3e-d48d-49f0-a74b-668e55b50360",
+      "_id": "9da05465-0fa8-4a15-818c-9b1e03eb78b7"
+    }
+  ]
+}

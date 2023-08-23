@@ -1,0 +1,32 @@
+<form action="/dashboard/addstation" method="POST">
+  <div class="columns">
+    <div class="field column">
+      <label class="label">Name</label>
+      <div class="control">
+        <input
+          class="input"
+          placeholder="Station name"
+          type="text"
+          name="title"
+        />
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Latitude</label>
+      <div class="control">
+        <input class="input" placeholder="00.000" type="float" name="latitude" />
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Longitude</label>
+      <div class="control">
+        <input class="input" placeholder="00.000" type="float" name="longitude" />
+      </div>
+    </div>
+  </div>
+  <div class="field mt-4">
+    <div class="control">
+      <button class="button is-info">Add station</button>
+    </div>
+  </div>
+</form>

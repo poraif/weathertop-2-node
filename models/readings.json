@@ -1,0 +1,77 @@
+{
+  "file": "./models/readings.json",
+  "readings": [
+    {
+      "code": "600",
+      "temperature": "12",
+      "windSpeed": "12",
+      "windDirection": "12",
+      "pressure": "12",
+      "_id": "0a89e3dc-d09f-491e-bf1a-264ef9ad4a5b",
+      "stationid": "a1105eda-1fb3-4ea2-8aea-f27adfa3626e"
+    },
+    {
+      "code": "Select Code",
+      "temperature": "",
+      "windSpeed": "",
+      "windDirection": "",
+      "pressure": "",
+      "_id": "13d393b9-5f30-4ca4-9e42-317b1c9b270b",
+      "stationid": "e6cf2522-a4be-4f47-bd60-ad0147b233b3"
+    },
+    {
+      "code": "600",
+      "temperature": "34",
+      "windSpeed": "34",
+      "windDirection": "34",
+      "pressure": "34",
+      "_id": "bcaaa210-06c4-4e21-bbd5-637687340116",
+      "stationid": "e6cf2522-a4be-4f47-bd60-ad0147b233b3"
+    },
+    {
+      "code": "200",
+      "temperature": "23",
+      "windSpeed": "23",
+      "windDirection": "23",
+      "pressure": "23",
+      "_id": "88849157-703e-4258-9022-05f3d6c07a17",
+      "stationid": "eea17624-9418-470f-bd75-395a0491406f"
+    },
+    {
+      "code": "200",
+      "temperature": "12",
+      "windSpeed": "12",
+      "windDirection": "12",
+      "pressure": "12",
+      "_id": "96f2b622-7187-470b-bdb5-b42b5642cece",
+      "stationid": "75946320-f3f0-4182-941f-a4713cb6cc33"
+    },
+    {
+      "code": 200,
+      "temperature": 123,
+      "windSpeed": 123,
+      "windDirection": 123,
+      "pressure": 123,
+      "_id": "64cf9f97-508b-497a-86dc-18e593943ed3",
+      "stationid": "9da05465-0fa8-4a15-818c-9b1e03eb78b7"
+    },
+    {
+      "code": 400,
+      "temperature": 12,
+      "windSpeed": 43,
+      "windDirection": 56,
+      "pressure": 98,
+      "_id": "0f068b97-f9f9-418b-99e1-2df3d44225e4",
+      "stationid": "9da05465-0fa8-4a15-818c-9b1e03eb78b7"
+    },
+    {
+      "code": 700,
+      "temperature": 45,
+      "windSpeed": 1,
+      "windDirection": 12,
+      "pressure": 12,
+      "_id": "ea1d5fa3-c5ff-4cfa-8645-5f5bbd131228",
+      "stationid": "9da05465-0fa8-4a15-818c-9b1e03eb78b7"
+    }
+  ]
+}
