@@ -1,4 +1,5 @@
 export const conversions = {
+  
   convertWeatherCode(weatherCode) {
     switch (weatherCode) {
       case 100:
@@ -105,4 +106,9 @@ export const conversions = {
       return "Please enter a valid value";
     }
   },
+  
+  calcWindChill(windSpeed, temperature) {
+    const i = windSpeed ** 0.16;
+    return (Math.round((13.12 + (0.6215 * temperature) - (11.37 * i) + ((0.3965 * temperature) * i)) * 100) / 100.0);
+  }
 };
