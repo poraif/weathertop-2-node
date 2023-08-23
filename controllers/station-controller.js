@@ -1,16 +1,22 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/analytics.js";
+import { conversions } from "../utils/conversions.js";
 
 export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     const latestReading = await stationAnalytics.getLatestReading(station._id);
     const code = latestReading.code;
+    const tempC = latestReading.temperature;
+    const tempF = conversions.celsiusToFahrenheit(latestReading.temperature);
     const viewData = {
       title: "Station",
       station: station,
       latestCode: code,
+      latestTempC: tempC,
+      latestTempF: tempF,
+      
     };
     response.render("station-view", viewData);
   },
