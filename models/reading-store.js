@@ -56,15 +56,5 @@ export const readingStore = {
     reading.windDirection = updatedReading.windDirection;
     await db.write();
   },
-  
-    async getRecentReading(){
-    await db.read();
-    return db.data.readings[readings.length - 1].filter((reading) => reading.stationid === id);
-  },
-
-  async recentCode(){
-    await db.read();
-    return getRecentReading().code;
-  },
 
 };

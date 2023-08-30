@@ -1,19 +1,19 @@
-<div class="columns is-flex">
+<div class="columns">
     <div class="column is-one-fifth">
         <div class="card notification is-success">
             <div class="title is-3">
-                {{station.title}}
+                {{title}}
             </div>
             <div class="columns is-mobile">
-                <div class="column is-two-thirds">
+                <div class="column is-three-quarters">
                     <p>Lat: {{station.latitude}}</p>
                     <p>Lng: {{station.longitude}}</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                 </div>
-                <div class="column is-one-third">
-                    <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+                <div class="column is-one-quarter">
+                    {{>icons/location }}
                 </div>
             </div>
         </div>
@@ -24,44 +24,16 @@
                 Weather
             </div>
             <div class="columns is-mobile">
-                <div class="column is-two-thirds">
+                <div class="column is-three-quarters">
                     <p>{{latestWeather}}</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                     <p class="is-invisible">U+0020</p>
                 </div>
-              {{!
-                <div class="column is-one-third">
-                    #{if reading.getWeatherCondition() == 'Clear'}
-                    <i class="fas fa-sun fa-3x"></i>
-                    #{/if}
-                    #{elseif reading.getWeatherCondition() == 'Partial clouds'}
-                    <i class="fas fa-cloud-sun fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Cloudy'}
-                    <i class="fas fa-cloud fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Light showers'}
-                    <i class="fas fa-cloud-sun-rain fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Heavy showers'}
-                    <i class="fas fa-cloud-rain fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Rain'}
-                    <i class="fas fa-droplet fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Snow'}
-                    <i class="fas fa-snowflake fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.getWeatherCondition() == 'Thunder'}
-                    <i class="fas fa-cloud-bolt fa-3x"></i>
-                    #{/elseif}
-                    #{else}
-                    <i></i>
-                    #{/else}
+                <div class="column is-one-quarter">
+                    <i class="fas fa-sun fa-3x"></i> 
                 </div>
-                }}
             </div>
         </div>
     </div>
@@ -71,34 +43,20 @@
                 Temp
             </div>
             <div class="columns is-mobile">
-                <div class="column is-two-thirds">
+                <div class="column is-three-quarters">
                     <p> {{latestTempC}} C</p>
                     <p> {{latestTempF}} F</p>
-                  {{!
-                    <p> Max: ${_station.maxTemperature}</p>
-                    <p> Min: ${_station.minTemperature}</p>
+                    <p> Min: {{minTemp.temperature}} C</p>
+                    <p> Max: {{maxTemp.temperature}} C</p>
                     <p class="is-invisible">U+0020</p>
-                    }}
                 </div>
-              {{!
                 <div class="column is-one-third">
-                    #{if reading.temperature <= 0.0 }
-                    <i class="fas fa-snowman fa-3x"></i>
-                    #{/if}
-                    #{elseif reading.temperature < 20.0 && reading.temperature > 0.0}
-                    <i class="fa-solid fa-temperature-low fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.temperature < 40.0 && reading.temperature >= 20.0}
-                    <i class="fa-solid fa-temperature-high fa-3x"></i>
-                    #{/elseif}
-                    #{elseif reading.temperature >= 40.0}
-                    <i class="fa-solid fa-fire fa-3x"></i>
-                    #{/elseif}
-                    #{else}
-                    <i></i>
-                    #{/else}
+                  {{#if latestTempC}}
+{{>icons/temp-freezing }}
+                  {{else}}
+                  <p> no temp entered </p>
+{{/if}}
                 </div>
-                }}
             </div>
         </div>
     </div>
@@ -108,10 +66,12 @@
                 Wind
             </div>
             <div class="columns is-mobile">
-                <div class="column is-two-thirds">
-                    <p>{{latestWindSpeedBft}} bft</p>
+                <div class="column is-three-quarters">
+                    <p>{{latestWindSpeedBft}} Bft</p>
                     <p>{{latestCompassDirection}}</p>
-                  <p>Feels: {{latestWindChill}} C</p>
+                    <p>Feels: {{latestWindChill}} C</p>
+                    <p> Min: {{minWindSpeed.windSpeed}} Bft</p>
+                    <p> Max: {{maxWindSpeed.windSpeed}} Bft</p>
                   {{!
                     <p> Max: ${_station.maxWindSpeed}</p>
                     <p> Min: ${_station.minWindSpeed}</p>
@@ -139,15 +99,16 @@
               </div>
             </div>
         </div>
-    </div>
     <div class="column is-one-fifth">
         <div class="card notification is-success">
             <div class="title is-3">
                 Pressure
             </div>
             <div class="columns is-mobile">
-                <div class="column is-two-thirds">
+                <div class="column is-three-quarters">
                     <p>{{latestPressure}} hPa</p>
+                    <p> Min: {{minPressure.pressure}} hPa</p>
+                    <p> Max: {{maxPressure.pressure}} hPa</p>
                   {{!
                     <p>Max: ${_station.maxPressure}</p>
                     <p>Min: ${_station.minPressure}</p>
@@ -155,7 +116,7 @@
                     <p class="is-invisible">U+0020</p>
                     }}
                 </div>
-                <div class="column is-one-third">
+                <div class="column is-one-quarter">
                     <i class="fa-solid fa-gauge fa-3x"></i>
                 </div>
             </div>

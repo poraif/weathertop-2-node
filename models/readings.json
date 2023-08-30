@@ -81,6 +81,16 @@
       "pressure": 35,
       "_id": "cfc78202-b445-4f6e-8e67-400eaedab224",
       "stationid": "9da05465-0fa8-4a15-818c-9b1e03eb78b7"
+    },
+    {
+      "timestamp": "30/8/2023, 07:40:25",
+      "code": 500,
+      "temperature": 12,
+      "windSpeed": 12,
+      "windDirection": 12,
+      "pressure": 12,
+      "_id": "bf3db52f-e94e-4ec5-9a92-93cc2084e94a",
+      "stationid": "2d1e4333-46f3-472d-b575-93dbfa450105"
     }
   ]
 }
