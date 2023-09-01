@@ -33,6 +33,24 @@ export const userStore = {
     db.data.users.splice(index, 1);
     await db.write();
   },
+  
+  
+    async addReading(stationId, reading) {
+    await db.read();
+    reading._id = v4();
+    reading.stationid = stationId;
+    db.data.readings.push(reading);
+    await db.write();
+    return reading;
+  },
+  
+  async updateUser(id, updatedDetails) {
+      await db.read();
+      return db.data.users.find((user) => user._id === id);
+    db.data.users.push(updatedDetails);
+     await db.write();
+    },
+
 
   async deleteAll() {
     db.data.users = [];

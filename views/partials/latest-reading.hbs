@@ -1,3 +1,4 @@
+{{#if latestReading}}
 <div class="columns">
     <div class="column is-one-fifth">
         <div class="card notification is-success">
@@ -48,14 +49,17 @@
                     <p> {{latestTempF}} F</p>
                     <p> Min: {{minTemp.temperature}} C</p>
                     <p> Max: {{maxTemp.temperature}} C</p>
-                    <p class="is-invisible">U+0020</p>
+                    {{#if tempUpTrend}}
+                      <p><i class="fas fa-arrow-up"></i></p>
+                    {{/if}}
+                    {{#if tempDownTrend}}
+                      <p><i class="fas fa-arrow-down"></i></p>
+                    {{/if}}
                 </div>
                 <div class="column is-one-third">
                   {{#if latestTempC}}
-{{>icons/temp-freezing }}
-                  {{else}}
-                  <p> no temp entered </p>
-{{/if}}
+                    {{>icons/temp-freezing }}
+                  {{/if}}
                 </div>
             </div>
         </div>
@@ -72,10 +76,13 @@
                     <p>Feels: {{latestWindChill}} C</p>
                     <p> Min: {{minWindSpeed.windSpeed}} Bft</p>
                     <p> Max: {{maxWindSpeed.windSpeed}} Bft</p>
-                  {{!
-                    <p> Max: ${_station.maxWindSpeed}</p>
-                    <p> Min: ${_station.minWindSpeed}</p>
-                    }}
+                    {{#if windUpTrend}}
+                      <p><i class="fas fa-arrow-up"></i></p>
+                    {{/if}}
+                    {{#if windDownTrend}}
+                      <p><i class="fas fa-arrow-down"></i></p>
+                    {{/if}}
+                </div>
                 </div>
               {{!
                 <div class="column is-one-third">
@@ -98,7 +105,6 @@
                 }}
               </div>
             </div>
-        </div>
     <div class="column is-one-fifth">
         <div class="card notification is-success">
             <div class="title is-3">
@@ -109,12 +115,13 @@
                     <p>{{latestPressure}} hPa</p>
                     <p> Min: {{minPressure.pressure}} hPa</p>
                     <p> Max: {{maxPressure.pressure}} hPa</p>
-                  {{!
-                    <p>Max: ${_station.maxPressure}</p>
-                    <p>Min: ${_station.minPressure}</p>
-                    <p class="is-invisible">U+0020</p>
-                    <p class="is-invisible">U+0020</p>
-                    }}
+                    {{#if pressureUpTrend}}
+                      <p><i class="fas fa-arrow-up"></i></p>
+                    {{/if}}
+                    {{#if pressureDownTrend}}
+                      <p><i class="fas fa-arrow-down"></i></p>
+                    {{/if}}
+                </div>
                 </div>
                 <div class="column is-one-quarter">
                     <i class="fa-solid fa-gauge fa-3x"></i>
@@ -122,4 +129,4 @@
             </div>
         </div>
     </div>
-</div>
+{{/if}}

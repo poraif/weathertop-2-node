@@ -2,6 +2,7 @@ import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/analytics.js";
 import { conversions } from "../utils/conversions.js";
+import { trends } from "../utils/trends.js";
 
 export const stationController = {
   async index(request, response) {
@@ -20,8 +21,15 @@ export const stationController = {
     const maxWindSpeed = stationAnalytics.getMaxWindSpeed(station);
     const minPressure = stationAnalytics.getMinPressure(station);
     const maxPressure = stationAnalytics.getMaxPressure(station);
+    const tempUpTrend = trends.checkTempUpTrend(station);
+    const tempDownTrend = trends.checkTempDownTrend(station);
+    const windUpTrend = trends.checkWindUpTrend(station);
+    const windDownTrend = trends.checkWindDownTrend(station);
+    const pressureUpTrend = trends.checkPressureUpTrend(station);
+    const pressureDownTrend = trends.checkPressureDownTrend(station);
     const viewData = {
       title: "Station", station,
+      latestReading: latestReading,
       station: station,
       latestWeather: latestWeather,
       latestTempC: latestTempC,
@@ -36,6 +44,12 @@ export const stationController = {
       maxWindSpeed: maxWindSpeed,
       minPressure: minPressure,
       maxPressure: maxPressure,
+      tempUpTrend: tempUpTrend,
+      tempDownTrend: tempDownTrend,
+      windUpTrend: windUpTrend,
+      windDownTrend: windDownTrend,
+      pressureUpTrend: pressureUpTrend,
+      pressureDownTrend: pressureDownTrend,
     };
     response.render("station-view", viewData);
   },

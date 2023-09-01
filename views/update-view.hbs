@@ -1,0 +1,52 @@
+{{> menu active="update"}}
+
+<section class="content box">
+    <div class="columns">
+        <div class="column is-half">
+            <form action="/updatedetails" method="POST">
+                <h3 class="subtitle">Update Account Details</h3>
+                <div class="field is-horizontal field-body">
+                    <div class="field">
+                        <label class="label">First Name</label>
+                      <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="{{user.firstname}}" name="firstname"
+                                   value = "{{user.firstname}}">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="{{user.lastname}}" name="lastname"
+                                   value="{{user.lastname}}">
+                        </p>
+                    </div>
+                </div>
+                <fieldset disabled>
+                    <div class="field">
+                        <label class="label">Email</label>
+                      <p class="control has-icons-left">
+                            <input class="input" type="email" placeholder="User email cannot be changed" name="email">
+                            <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+                      </p>
+                    </div>
+                </fieldset>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" name="password" value="{{user.password}}">
+                        <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+            </span>
+                </div>
+                <button class="button is-link is-info">Confirm update</button>
+            </form>
+        </div>
+        <div class="column is-half">
+            <figure class="image is-square">
+                <img src="https://cdn.glitch.global/4c6ed396-0a3f-430b-8934-73d0387f0ea9/storm.jpg?v=1693556956076">
+            </figure>
+        </div>
+    </div>
+</section>

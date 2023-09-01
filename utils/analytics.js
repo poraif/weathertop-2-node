@@ -14,7 +14,7 @@ export const stationAnalytics ={
       return stationReadings[stationReadings.length - 1];
     }
     else {
-        return stationReadings === "no readings to show. Please enter a reading.";
+        return false;
     };
   },
   
@@ -99,6 +99,32 @@ export const stationAnalytics ={
  getTimeStamp() {
 const timeStamp = new Date();
 return (timeStamp.toLocaleString("en-IE", { timeZone: 'Europe/Dublin' }));
-}
+},
+  
+  /*
+  checkTempUpTrend(station) {
+    let latestThreeReadings = null;
+    if (station.readings.length > 2) {
+      latestThreeReadings = station.readings.slice(-1,-3);
+    }
+    if (latestThreeReadings[0].temperature > latestThreeReadings[1].temperature  > latestThreeReadings[2].temperature) {
+      console.log("registered uptrend");
+    }
+    console.log("this registered");
+  },
+    */
+  
+  checkTempUpTrend(station){
+    let latestThreeReadings = null;
+    console.log
+    if (station.readings.length > 2) {
+      latestThreeReadings = station.readings.slice(-3);
+    }
+    if ((latestThreeReadings[2].temperature > latestThreeReadings[1].temperature) && (latestThreeReadings[1].temperature > latestThreeReadings[0].temperature)) {
+    return true;
+  }
+  },
+  
+     
   
 };

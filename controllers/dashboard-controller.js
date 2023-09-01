@@ -8,10 +8,16 @@ export const dashboardController = {
   
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
+    const stations = await stationStore.getStationsByUserId(loggedInUser._id);
+    
+        for(const station of stations){
+      const latestReading = await stationAnalytics.getLatestReading(station._id);
+      station.latestReading = latestReading;
+    };
     
     const viewData = {
       title: "Station Dashboard",
-      stations: await stationStore.getStationsByUserId(loggedInUser._id),
+      stations: stations,
     };
     console.log("dashboard rendering");
     response.render("dashboard-view", viewData);

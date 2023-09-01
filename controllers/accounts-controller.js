@@ -16,15 +16,22 @@ export const accountsController = {
   },
 
   logout(request, response) {
-    response.cookie("playlist", "");
+    response.cookie("station", "");
     response.redirect("/");
   },
 
   signup(request, response) {
     const viewData = {
-      title: "Login to the Service",
+      title: "Sign up to the Service",
     };
     response.render("signup-view", viewData);
+  },
+  
+    update(request, response) {
+    const viewData = {
+      title: "Update your details",
+    };
+    response.render("update-view", viewData);
   },
 
   async register(request, response) {
@@ -37,16 +44,29 @@ export const accountsController = {
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
     if (user) {
-      response.cookie("playlist", user.email);
+      response.cookie("station", user.email);
       console.log(`logging in ${user.email}`);
       response.redirect("/dashboard");
     } else {
       response.redirect("/login");
     }
   },
+  
+    async updateDetails(request, response) {
+    const user = await userStore.getUserById(request.params.id);
+    const updatedDetails = {
+    firstname: String(request.body.firstname),
+    lastname: String(request.body.lastname),
+    password: String(request.body.password),
+    }
+    console.log(`updating ${updatedDetails.firstname}`);
+    response.redirect("/dashboard");
+    },
+ 
 
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.playlist;
+    const userEmail = request.cookies.station;
     return await userStore.getUserByEmail(userEmail);
   },
+  
 };
