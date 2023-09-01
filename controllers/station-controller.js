@@ -10,11 +10,20 @@ export const stationController = {
     const latestReading = await stationAnalytics.getLatestReading(station._id);
     const latestWeather = conversions.convertWeatherCode(latestReading.code);
     const latestTempC = latestReading.temperature;
-    const latestTempF = conversions.celsiusToFahrenheit(latestReading.temperature);
-    const latestWindSpeedBft = conversions.windSpeedtoBeaufort(latestReading.windSpeed);
+    const latestTempF = conversions.celsiusToFahrenheit(
+      latestReading.temperature
+    );
+    const latestWindSpeedBft = conversions.windSpeedtoBeaufort(
+      latestReading.windSpeed
+    );
     const latestPressure = latestReading.pressure;
-    const latestCompassDirection = conversions.windDirectionToCompassDirection(latestReading.windDirection);
-    const latestWindChill = conversions.calcWindChill(latestReading.windSpeed,latestReading.temperature);
+    const latestCompassDirection = conversions.windDirectionToCompassDirection(
+      latestReading.windDirection
+    );
+    const latestWindChill = conversions.calcWindChill(
+      latestReading.windSpeed,
+      latestReading.temperature
+    );
     const minTemp = stationAnalytics.getMinTemp(station);
     const maxTemp = stationAnalytics.getMaxTemp(station);
     const minWindSpeed = stationAnalytics.getMinWindSpeed(station);
@@ -28,7 +37,8 @@ export const stationController = {
     const pressureUpTrend = trends.checkPressureUpTrend(station);
     const pressureDownTrend = trends.checkPressureDownTrend(station);
     const viewData = {
-      title: "Station", station,
+      title: "Station",
+      station,
       latestReading: latestReading,
       station: station,
       latestWeather: latestWeather,

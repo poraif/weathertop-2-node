@@ -26,10 +26,14 @@ export const accountsController = {
     };
     response.render("signup-view", viewData);
   },
-  
-    update(request, response) {
+
+  async update(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
     const viewData = {
       title: "Update your details",
+      firstname: loggedInUser.firstname,
+      lastname: loggedInUser.lastname,
+      password: loggedInUser.password,
     };
     response.render("update-view", viewData);
   },
@@ -51,24 +55,22 @@ export const accountsController = {
       response.redirect("/login");
     }
   },
-  
-    async updateDetails(request, response) {
+
+  async updateDetails(request, response) {
     const userEmail = await request.cookies.station;
     const user = await userStore.getUserByEmail(userEmail);
     const updatedDetails = {
-    firstname: String(request.body.firstname),
-    lastname: String(request.body.lastname),
-    password: String(request.body.password),
-    }
+      firstname: String(request.body.firstname),
+      lastname: String(request.body.lastname),
+      password: String(request.body.password),
+    };
     console.log(`updating ${updatedDetails.firstname}`);
     await userStore.updateUser(user, updatedDetails);
     response.redirect("/dashboard");
-    },
- 
+  },
 
   async getLoggedInUser(request) {
     const userEmail = request.cookies.station;
     return await userStore.getUserByEmail(userEmail);
   },
-  
 };

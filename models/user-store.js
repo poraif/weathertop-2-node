@@ -33,9 +33,8 @@ export const userStore = {
     db.data.users.splice(index, 1);
     await db.write();
   },
-  
-  
-    async addReading(stationId, reading) {
+
+  async addReading(stationId, reading) {
     await db.read();
     reading._id = v4();
     reading.stationid = stationId;
@@ -43,14 +42,13 @@ export const userStore = {
     await db.write();
     return reading;
   },
-  
+
   async updateUser(user, updatedDetails) {
-      user.firstname = updatedDetails.firstname;
+    user.firstname = updatedDetails.firstname;
     user.lastname = updatedDetails.lastname;
     user.password = updatedDetails.password;
-     await db.write();
-    },
-
+    await db.write();
+  },
 
   async deleteAll() {
     db.data.users = [];

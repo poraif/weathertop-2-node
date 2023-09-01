@@ -8,11 +8,16 @@ export const router = express.Router();
 
 router.get("/dashboard", dashboardController.index);
 router.post("/dashboard/addstation", dashboardController.addStation);
+router.get("/dashboard/deletestation/:id", dashboardController.deleteStation);
+
 router.get("/about", aboutController.index);
+
 router.get("/station/:id", stationController.index);
 router.post("/station/:id/addreading", stationController.addReading);
-router.get("/dashboard/deletestation/:id", dashboardController.deleteStation);
-router.get("/station/:stationid/deletereading/:readingid", stationController.deleteReading);
+router.get(
+  "/station/:stationid/deletereading/:readingid",
+  stationController.deleteReading
+);
 
 router.get("/", accountsController.index);
 router.get("/login", accountsController.login);
