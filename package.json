@@ -15,7 +15,9 @@
     "express-handlebars": "^6.0.7",
     "fs-extra": "^11.1.0",
     "lowdb": "^5.1.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "axios": "^1.4.0",
+    "prettier": "^3.0.1"
   },
   "repository": {
     "url": "https://github.com/poraif/weathertop-2-node.git"

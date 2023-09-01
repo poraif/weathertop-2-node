@@ -22,9 +22,8 @@ export const readingStore = {
     await db.read();
     return db.data.readings.filter((reading) => reading.stationid === id);
   },
-  
-  
-    async getStationById(id) {
+
+  async getStationById(id) {
     await db.read();
     const list = db.data.stations.find((station) => station._id === id);
     list.readings = await readingStore.getReadingsByStationId(list._id);
@@ -56,15 +55,4 @@ export const readingStore = {
     reading.windDirection = updatedReading.windDirection;
     await db.write();
   },
-  
-    async getRecentReading(){
-    await db.read();
-    return db.data.readings[readings.length - 1].filter((reading) => reading.stationid === id);
-  },
-
-  async recentCode(){
-    await db.read();
-    return getRecentReading().code;
-  },
-
 };
