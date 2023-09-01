@@ -7,10 +7,31 @@
     },
     {
       "title": "test1233",
-      "latitude": "23.123",
-      "longitude": "24.124",
+      "lat": "23.123",
+      "lon": "24.124",
       "userid": "e2148e3e-d48d-49f0-a74b-668e55b50360",
       "_id": "2d1e4333-46f3-472d-b575-93dbfa450105"
+    },
+    {
+      "title": "test2",
+      "lat": "123",
+      "lon": "123",
+      "userid": "e2148e3e-d48d-49f0-a74b-668e55b50360",
+      "_id": "5a455225-c76b-499d-89c6-3fc7834343f4"
+    },
+    {
+      "title": "abc",
+      "lat": "123",
+      "lon": "123",
+      "userid": "e2148e3e-d48d-49f0-a74b-668e55b50360",
+      "_id": "a38c096b-aadc-4242-b344-89945ca0910f"
+    },
+    {
+      "title": "def",
+      "lat": "def",
+      "lon": "def",
+      "userid": "e2148e3e-d48d-49f0-a74b-668e55b50360",
+      "_id": "40ffa90e-01d3-4988-a084-a5521d6322bd"
     }
   ]
 }

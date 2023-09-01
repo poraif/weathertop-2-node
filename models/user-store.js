@@ -44,10 +44,10 @@ export const userStore = {
     return reading;
   },
   
-  async updateUser(id, updatedDetails) {
-      await db.read();
-      return db.data.users.find((user) => user._id === id);
-    db.data.users.push(updatedDetails);
+  async updateUser(user, updatedDetails) {
+      user.firstname = updatedDetails.firstname;
+    user.lastname = updatedDetails.lastname;
+    user.password = updatedDetails.password;
      await db.write();
     },
 

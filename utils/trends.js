@@ -88,17 +88,5 @@ export const trends ={
       }
   },
   
-    /*
-        checkPressureDownTrend(station){
-    let latestThreeReadings = null;
-    console.log
-    if (station.readings.length > 2) {
-      latestThreeReadings = station.readings.slice(-3);
-    }
-    if ((latestThreeReadings[2].pressure < latestThreeReadings[1].pressure) && (latestThreeReadings[1].pressure < latestThreeReadings[0].pressure)) {
-    return true;
-  }
-  },
-  */
   
 }

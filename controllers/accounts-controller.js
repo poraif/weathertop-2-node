@@ -53,13 +53,15 @@ export const accountsController = {
   },
   
     async updateDetails(request, response) {
-    const user = await userStore.getUserById(request.params.id);
+    const userEmail = await request.cookies.station;
+    const user = await userStore.getUserByEmail(userEmail);
     const updatedDetails = {
     firstname: String(request.body.firstname),
     lastname: String(request.body.lastname),
     password: String(request.body.password),
     }
     console.log(`updating ${updatedDetails.firstname}`);
+    await userStore.updateUser(user, updatedDetails);
     response.redirect("/dashboard");
     },
  

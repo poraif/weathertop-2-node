@@ -3,22 +3,29 @@ import { accountsController } from "./accounts-controller.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/analytics.js";
 import { conversions } from "../utils/conversions.js";
+import { trends } from "../utils/trends.js";
 
 export const dashboardController = {
   
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
     const stations = await stationStore.getStationsByUserId(loggedInUser._id);
-    
-        for(const station of stations){
-      const latestReading = await stationAnalytics.getLatestReading(station._id);
-      station.latestReading = latestReading;
-    };
-    
+    const sortedStations = stations.sort((a, b) =>
+    a.title.localeCompare(b.title));
+
+
+
+
     const viewData = {
       title: "Station Dashboard",
-      stations: stations,
+      firstname: loggedInUser.firstname,
+      lastname: loggedInUser.lastname,
+      
+      stations: sortedStations,
     };
+    
+
+
     console.log("dashboard rendering");
     response.render("dashboard-view", viewData);
   },
@@ -27,8 +34,8 @@ export const dashboardController = {
     const loggedInUser = await accountsController.getLoggedInUser(request);
     const newStation = {
       title: request.body.title,
-      latitude: request.body.latitude,
-      longitude: request.body.longitude,
+      lat: request.body.lat,
+      lon: request.body.lon,
       userid: loggedInUser._id,
     };
     console.log(`adding station ${newStation.title}`);
